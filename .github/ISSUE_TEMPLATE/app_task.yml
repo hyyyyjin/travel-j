@@ -1,0 +1,23 @@
+name: App Task
+description: Implement a Flutter screen/component
+labels: [role:app, type:task]
+title: "[App] <feature/screen>"
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What to implement and what not
+      placeholder: Out of scope items are explicit
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: State/Repository Contracts
+      description: Providers, models, events, errors
+  - type: textarea
+    id: test
+    attributes:
+      label: Test Plan
+      description: Widget/integration tests, manual checks

@@ -1,0 +1,15 @@
+name: Maps/Deep Link Task
+description: Improve directions and travel time integration
+labels: [role:maps, type:task]
+title: "[Maps] <capability>"
+body:
+  - type: textarea
+    id: links
+    attributes:
+      label: Deep Links
+      description: App schemes, fallback ordering, encoding
+  - type: textarea
+    id: travel
+    attributes:
+      label: Travel Time API
+      description: Provider choice, quota, error handling, unit tests

@@ -1,0 +1,23 @@
+name: QA Checklist
+description: Validate acceptance criteria and core flows
+labels: [role:qa, type:test]
+title: "[QA] <scope>"
+body:
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Link to story; checklist
+      placeholder: - [ ] Given/When/Then ...
+      validations:
+        required: true
+  - type: textarea
+    id: devices
+    attributes:
+      label: Devices/OS
+      description: Matrix of test devices
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Bugs found, follow-ups

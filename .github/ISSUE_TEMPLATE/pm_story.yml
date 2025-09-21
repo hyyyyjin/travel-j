@@ -1,0 +1,34 @@
+name: PM Story
+description: Define a user story with acceptance criteria
+labels: [role:pm, type:story]
+title: "[Story] <concise user value>"
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Link to spec/feedback and why this matters
+      placeholder: Why are we doing this now?
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: User Story
+      description: As a <user>, I want <capability>, so that <benefit>
+      placeholder: As a planner...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Bullet list of verifiable outcomes
+      placeholder: "- Given/When/Then ..."
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Risks, out of scope, follow-ups

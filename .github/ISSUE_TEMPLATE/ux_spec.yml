@@ -1,0 +1,27 @@
+name: UX Spec
+description: Specify UX/UI details and flows
+labels: [role:ux, type:spec]
+title: "[UX] <screen/component>"
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem & Goals
+      description: What user problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: flows
+    attributes:
+      label: Flows
+      description: Screen flow, states, empty/error, accessibility
+  - type: textarea
+    id: components
+    attributes:
+      label: Components
+      description: List components and props with constraints
+  - type: textarea
+    id: assets
+    attributes:
+      label: Assets
+      description: Link to Figma/spec screenshots

@@ -1,0 +1,22 @@
+name: Repository Task
+description: Implement data repository (e.g., Firestore)
+labels: [role:repo, type:task]
+title: "[Repo] <resource>"
+body:
+  - type: textarea
+    id: adapter
+    attributes:
+      label: Adapter/Schema
+      description: DTOs, converters, schema versioning, indexes
+      validations:
+        required: true
+  - type: textarea
+    id: sync
+    attributes:
+      label: Sync/Offline
+      description: Caching policy, retry/backoff, merges
+  - type: textarea
+    id: security
+    attributes:
+      label: Security
+      description: Rules, tokens, PII handling

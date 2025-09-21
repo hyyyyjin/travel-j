@@ -1,0 +1,23 @@
+name: State Task
+description: Add/modify Riverpod state and logic
+labels: [role:state, type:task]
+title: "[State] <capability>"
+body:
+  - type: textarea
+    id: changes
+    attributes:
+      label: Changes
+      description: New providers/notifiers, API shape, invariants
+      placeholder: Be explicit about state transitions and sorting
+      validations:
+        required: true
+  - type: textarea
+    id: errors
+    attributes:
+      label: Errors & Edge Cases
+      description: How errors propagate; guardrails
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests
+      description: Unit/provider tests; fake repositories

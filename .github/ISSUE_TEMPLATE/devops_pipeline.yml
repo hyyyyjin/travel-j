@@ -1,0 +1,22 @@
+name: DevOps Pipeline
+description: CI/CD and release task
+labels: [role:devops, type:infra]
+title: "[DevOps] <pipeline>"
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Build, test, artifact, store upload
+      validations:
+        required: true
+  - type: textarea
+    id: secrets
+    attributes:
+      label: Secrets
+      description: How credentials are provided (never commit)
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Metrics
+      description: Crash/analytics/logging setup
