@@ -16,6 +16,31 @@
  - 실행: `flutter run`
  - 분석/포맷: `flutter analyze`, `flutter format .`
 
+4) Ubuntu/Linux에서의 설치 가이드 (요약)
+ - Flutter 설치 (snap 예시):
+   - `sudo snap install flutter --classic`
+   - `flutter --version`
+ - Android 실행 준비:
+   - Android Studio 설치 또는 SDK(Commandline) 설치
+   - `flutter doctor --android-licenses` 실행 후 모든 라이선스 동의
+   - 에뮬레이터 생성 또는 USB 디바이스 연결 후 `flutter devices` 확인
+ - Linux 데스크탑 실행 준비(선택):
+   - 필수 패키지: `sudo apt update && sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev libayatana-appindicator3-dev`
+   - 데스크탑 활성화: `flutter config --enable-linux-desktop`
+
+5) 실행 예시
+ - Android: (에뮬레이터/디바이스 연결 후)
+   - `cd tripflow`
+   - `flutter create . && flutter pub get`
+   - `flutter run -d android`
+ - Linux 데스크탑:
+   - `cd tripflow`
+   - `flutter create . && flutter pub get`
+   - `flutter run -d linux`
+
+참고
+ - 본 레포는 플랫폼 폴더를 버전관리에서 제외합니다(`android/`, `ios/`, `linux/` 등). 처음 클론 후 1회 `flutter create .`로 자동 생성하세요.
+
 기능 구현 상태 (MVP)
  - 홈/플랜 상세/일일 일정/일정 편집 네비게이션 구성
  - 일정 타임라인 UI, FAB로 일정 추가
