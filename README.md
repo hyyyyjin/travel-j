@@ -12,6 +12,7 @@
 
 3) 명령어
  - 의존성 설치: `flutter pub get`
+ - (처음 1회) 플랫폼 폴더 생성: `flutter create .`
  - 실행: `flutter run`
  - 분석/포맷: `flutter analyze`, `flutter format .`
 
