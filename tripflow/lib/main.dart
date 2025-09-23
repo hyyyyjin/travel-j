@@ -6,8 +6,10 @@ import 'models/plan.dart';
 import 'providers/plan_list_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/plan_detail_screen.dart';
-import 'screens/day_schedule_screen.dart';
+// import 'screens/day_schedule_screen.dart';
 import 'screens/edit_place_screen.dart';
+import 'screens/create_plan_screen.dart';
+import 'screens/edit_plan_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,10 +37,21 @@ class TripFlowApp extends StatelessWidget {
             return MaterialPageRoute(
               builder: (_) => PlanDetailScreen(planId: planId),
             );
-          case DayScheduleScreen.routeName:
-            final args = settings.arguments as DayScheduleArgs;
+          // case DayScheduleScreen.routeName:
+          //   final args = settings.arguments as DayScheduleArgs;
+          //   return MaterialPageRoute(
+          //     builder: (_) => DayScheduleScreen(args: args),
+          //   );
+          case CreatePlanScreen.routeName:
             return MaterialPageRoute(
-              builder: (_) => DayScheduleScreen(args: args),
+              fullscreenDialog: true,
+              builder: (_) => const CreatePlanScreen(),
+            );
+          case EditPlanScreen.routeName:
+            final planId = settings.arguments as String;
+            return MaterialPageRoute(
+              fullscreenDialog: true,
+              builder: (_) => EditPlanScreen(planId: planId),
             );
           case EditPlaceScreen.routeName:
             final args = settings.arguments as EditPlaceArgs;

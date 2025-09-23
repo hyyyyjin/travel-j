@@ -16,6 +16,40 @@
   - 일정 추가/정렬, 예산 표시, 원클릭 길찾기(Naver → Google 앱 → 웹) 동작
   - 상태관리: Riverpod Notifier + 메모리 저장소(추후 Firestore로 대체 예정)
 
+## 현재 구현 상태 (2025-01-21)
+
+### 화면 구조 및 네비게이션
+- **HomeScreen** → **PlanDetailScreen** → **DayScheduleScreen** → **EditPlaceScreen**
+- 상태관리: Riverpod Notifier + 메모리 저장소
+- 주요 위젯: `_ScheduleCard`, `_TravelTimeCard`, `_EditPlaceScreenState`
+- 네비게이션: `Navigator.pushNamed` 기반
+
+### 파일별 역할
+- `home_screen.dart`: 플랜 목록 표시, 새 플랜 생성, 플랜 수정/삭제 (PopupMenu)
+- `plan_detail_screen.dart`: 확장 가능한 날짜별 카드, 일정 목록 표시, 일정 추가/편집/삭제
+- `create_plan_screen.dart`: 새 플랜 생성 폼 (제목, 날짜 선택)
+- `edit_plan_screen.dart`: 플랜 수정/삭제 폼
+- `edit_place_screen.dart`: 일정 추가/편집 폼 (수정 모드 지원)
+- `day_schedule_screen.dart`: 선택적 사용 (상세 타임라인 뷰가 필요한 경우)
+- `directions_service.dart`: 길찾기 딥링크 (Naver → Google → 웹)
+
+### 주요 위젯 구조 (plan_detail_screen.dart)
+- `_PlanDetailScreenState`: `expandedDays` Map으로 펼침/접힘 상태 관리
+- `_ExpandableDayCard`: 펼침/접힘 가능한 날짜 카드
+- `_DayScheduleList`: 펼쳐진 상태의 일정 목록 (일정 + 이동시간 카드)
+- `_ScheduleItemCard`: 개별 일정 카드 (길찾기/편집/삭제 버튼)
+- `_TravelTimeCard`: 이동 시간 표시 카드
+
+### 상태관리 기능 (PlanListNotifier)
+- `addPlan()`: 새 플랜 생성
+- `removePlan()`: 플랜 삭제
+- `updatePlan()`: 플랜 수정
+- `addScheduleItem()`: 일정 추가
+- `updateScheduleItem()`: 일정 수정
+- `removeScheduleItem()`: 일정 삭제 (새로 추가)
+- `toggleVisited()`: 방문 여부 토글
+
+
 ## 공통 운영 원칙
 - 커밋 규칙: Conventional Commits 사용 (예: `feat(app): ...`, `fix(state): ...`, `docs(agents): ...`)
 - 브랜치 전략: `main` 보호, 기능별 `feat/*`, 버그픽스 `fix/*`, 문서 `docs/*`

@@ -59,6 +59,16 @@ class PlanListNotifier extends Notifier<List<Plan>> {
     updatePlan(plan.copyWith(days: newDays));
   }
 
+  void removeScheduleItem({required String planId, required int dayIndex, required String itemId}) {
+    final plan = state.firstWhereOrNull((p) => p.id == planId);
+    if (plan == null) return;
+    final newDays = [...plan.days];
+    final day = newDays[dayIndex];
+    final newItems = day.items.where((it) => it.id != itemId).toList();
+    newDays[dayIndex] = day.copyWith(items: newItems);
+    updatePlan(plan.copyWith(days: newDays));
+  }
+
   void toggleVisited({required String planId, required int dayIndex, required String itemId}) {
     updateScheduleItem(
       planId: planId,
